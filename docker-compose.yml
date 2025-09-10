@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  # Base de datos MySQL
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: empanadas
+      MYSQL_USER: empanada_user
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Backend Node.js
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: mysql
+      DB_USER: empanada_user
+      DB_PASSWORD: secret
+      DB_NAME: empanadas
+      DB_PORT: 3306
+      command: sh -c "npm run migrate && npm run dev"
+      PORT: 3000
+    depends_on:
+      - mysql
+    volumes:
+      - ./backend:/app
+
+  # Frontend CodeIgniter (PHP + Apache)
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/var/www/html
+
+volumes:
+  db_data:

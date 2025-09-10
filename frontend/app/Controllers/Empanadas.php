@@ -1,0 +1,9 @@
+<?php namespace App\Controllers;
+
+class Empanadas extends BaseController
+{
+    public function index()
+    {
+        return view('index'); // Asegúrate de que esta vista exista
+    }
+}

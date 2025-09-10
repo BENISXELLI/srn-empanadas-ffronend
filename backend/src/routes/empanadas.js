@@ -3,10 +3,10 @@ const router = express.Router();
 const { body } = require('express-validator');
 const ctrl = require('../controllers/empanadasController');
 
-// Listar
+// cargar lista de empanadas
 router.get('/empanadas', ctrl.listEmpanadas);
 
-// Crear
+// agregar empanada
 router.post(
   '/empanada',
   [
@@ -18,7 +18,7 @@ router.post(
   ctrl.createEmpanada
 );
 
-// Actualizar
+// editar empanada
 router.put(
   '/empanada/:id',
   [
@@ -27,7 +27,7 @@ router.put(
   ctrl.updateEmpanada
 );
 
-// Eliminar
+// Eliminar empanada
 router.delete('/empanada/:id', ctrl.deleteEmpanada);
 
 module.exports = router;

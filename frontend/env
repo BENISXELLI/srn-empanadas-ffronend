@@ -30,11 +30,11 @@ app.baseURL = 'http://localhost:8080/'
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = empanadas-mysql-1
-database.default.database = empanadas
-database.default.username = empanada_user
-database.default.password = secret
-database.default.DBDriver = MySQLi
+#database.default.hostname = empanadas-mysql-1
+#database.default.database = empanadas
+#database.default.username = empanada_user
+#database.default.password = secret
+#database.default.DBDriver = MySQLi
 
 # If you use MySQLi as tests, first update the values of Config\Database::$tests.
 # database.tests.hostname = localhost

@@ -30,7 +30,7 @@ async function migrate() {
         ('Napolitana', 'Horno', 'Jamón, queso y tomate', 3000),
         ('Mariscos', 'Horno', 'Mezcla de mariscos', 3000)
       `);
-      console.log('🍴 Datos iniciales en CLP insertados');
+      console.log('Datos ingresados en la tabla empanadas');
     }
 
     process.exit(0);

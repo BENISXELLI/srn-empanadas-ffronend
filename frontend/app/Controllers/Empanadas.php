@@ -4,6 +4,6 @@ class Empanadas extends BaseController
 {
     public function index()
     {
-        return view('index'); // Asegúrate de que esta vista exista
+        return view('index'); // pagina de inicio
     }
 }
